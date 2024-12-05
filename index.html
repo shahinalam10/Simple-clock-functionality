@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS for Animations -->
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+<!-- Responsive Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container"> <!-- Container for fixed width -->
+    <a class="navbar-brand" href="index.html">My Clock App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto text-center"> <!-- Align to the right and center for smaller screens -->
+        <li class="nav-item">
+          <a class="nav-link active" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#digital-time">Alarm Function</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#stopwatch">Stopwatch</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#weather">Weather</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#smart-calender">Smart Calender</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#quotes">Time Base Quotes</a>
+        </li>
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+ <!-- Placeholder Content (you can change this to show your actual features) -->
+ <div class="container mt-5">
+  <div id="home" class="feature container">
+    <div class="row align-items-center">
+      <!-- Column 1: Analog Clock -->
+      <div class="col-lg-8 col-md-7 col-12 text-center">
+        <div class="clock mx-auto">
+          <!-- Numbers -->
+          <div class="number" style="top: 10%; left: 50%;">12</div>
+          <div class="number" style="top: 18%; left: 82%;">1</div>
+          <div class="number" style="top: 35%; left: 93%;">2</div>
+          <div class="number" style="top: 50%; left: 96%;">3</div>
+          <div class="number" style="top: 65%; left: 93%;">4</div>
+          <div class="number" style="top: 82%; left: 82%;">5</div>
+          <div class="number" style="top: 90%; left: 50%;">6</div>
+          <div class="number" style="top: 82%; left: 18%;">7</div>
+          <div class="number" style="top: 65%; left: 7%;">8</div>
+          <div class="number" style="top: 50%; left: 4%;">9</div>
+          <div class="number" style="top: 35%; left: 7%;">10</div>
+          <div class="number" style="top: 18%; left: 18%;">11</div>
+  
+          <!-- Clock hands -->
+          <div class="hand second" id="second"></div>
+          <div class="hand minute" id="minute"></div>
+          <div class="hand hour" id="hour"></div>
+        </div>
+        <!-- Digital Clock Display -->
+        <div id="digital-clock" class="mt-3">
+          <div id="time" class="time-display text-center"></div>
+          <button id="toggle-format" class="btn btn-sm btn-outline-light mt-2">12/24 Hour</button>
+        </div>
+        <br>        
+      </div>
+  
+      <div class="col-lg-4 col-md-5 col-12">
+        <div class="customization p-3 border shadow-sm rounded bg-white">
+          <h4 class="text-center mb-4 text-primary">Customize Clock</h4>
+          <div class="mb-3">
+            <label for="clock-bg-color" class="form-label fw-bold">Clock Background Color:</label>
+            <input type="color" id="clock-bg-color" class="form-control form-control-color" value="#34495e" aria-label="Clock Background Color">
+          </div>
+          <div class="mb-3">
+            <label for="hour-hand-color" class="form-label fw-bold">Hour Hand Color:</label>
+            <input type="color" id="hour-hand-color" class="form-control form-control-color" value="#e74c3c" aria-label="Hour Hand Color">
+          </div>
+          <div class="mb-3">
+            <label for="minute-hand-color" class="form-label fw-bold">Minute Hand Color:</label>
+            <input type="color" id="minute-hand-color" class="form-control form-control-color" value="#2ecc71" aria-label="Minute Hand Color">
+          </div>
+          <div class="mb-3">
+            <label for="second-hand-color" class="form-label fw-bold">Second Hand Color:</label>
+            <input type="color" id="second-hand-color" class="form-control form-control-color" value="#f39c12" aria-label="Second Hand Color">
+          </div>
+          <div>
+            <label for="font-size" class="form-label fw-bold">Clock Number Font Size:</label>
+            <input type="range" id="font-size" class="form-range" min="10" max="30" value="18" aria-label="Clock Number Font Size">
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+    <div id="digital-time" class="feature" style="display: none;">
+        <h2 class="text-center">Alarm Function</h2>
+        <div class="container mt-1">
+          <!-- Alarm Card -->
+          <div class="card shadow-lg border-0 rounded-lg p-4 mx-auto" id="alarm-card">
+            <div class="card-header text-center">
+              <h5 class="mb-0">Set Your Alarm</h5>
+            </div>
+            <div class="card-body text-center">
+              <!-- Time Picker -->
+              <div class="form-group mb-3">
+                <label for="alarm-time" class="form-label">Alarm Time:</label>
+                <input type="time" id="alarm-time" class="form-control form-control-lg" />
+              </div>
+        
+              <!-- Ringtone Selection -->
+              <div class="form-group mb-3">
+                <label for="ringtone-select" class="form-label">Choose Ringtone:</label>
+                <select id="ringtone-select" class="form-control form-control-lg">
+                  <option value="https://www.soundjay.com/button/beep-07.wav">Beep</option>
+                  <option value="https://www.soundjay.com/button/beep-01a.mp3">Short Beep</option>
+                  <option value="https://www.soundjay.com/button/beep-08b.wav">Long Beep</option>
+                  <option value="https://www.soundjay.com/button/beep-09.wav">Siren</option>
+                  <option value="https://www.soundjay.com/button/beep-10.wav">Classic</option>
+                </select>
+              </div>
+        
+              <!-- Alarm Set Button -->
+              <button id="set-alarm" class="btn btn-primary btn-lg w-100">Set Alarm</button>
+              <div id="alarm-status" class="mt-3 text-muted"></div>
+            </div>
+          </div>
+        
+         <!-- Alarm Triggered Message -->
+        <div id="alarm-message" class="alert alert-danger mt-4 text-center d-none" role="alert">
+          <h5>⏰ Time's Up! ⏰</h5>
+          <button id="snooze" class="btn btn-warning btn-sm timeup-button">Snooze</button>
+          <button id="dismiss" class="btn btn-danger btn-sm timeup-button">Dismiss</button>
+        </div>
+
+        </div>
+        
+    </div>
+
+    
+    <div id="stopwatch" class="feature" style="display: none;">
+      <div id="stopwatch" class="p-4 bg-light rounded shadow-sm text-center">
+        <h3 class="mb-3 text-dark">Enhanced Stopwatch</h3>
+        <div id="stopwatch-time" class="display-4 mb-3 text-primary">00:00:00.000</div>
+        <div class="mb-3">
+          <button id="start-btn" class="btn btn-success btn-sm me-2">Start</button>
+          <button id="pause-btn" class="btn btn-warning btn-sm me-2" disabled>Pause</button>
+          <button id="reset-btn" class="btn btn-danger btn-sm me-2" disabled>Reset</button>
+          <button id="lap-btn" class="btn btn-info btn-sm" disabled>Lap</button>
+        </div>
+        <div id="laps" class="mt-3">
+          <h5>Laps</h5>
+          <ul class="list-group"></ul>
+        </div>
+        <div class="mt-3">
+          <button id="theme-toggle" class="btn btn-secondary btn-sm">Toggle Theme</button>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div id="weather" class="feature" style="display: none;">
+      <div id="weather-widget" class="p-4 bg-light rounded shadow">
+        <div class="row">
+          <!-- Left Column: Current Weather -->
+          <div id="current-weather" class="col-lg-6 col-md-12 text-center mb-3 mb-lg-0">
+            <h4 id="city-name" class="text-secondary">Fetching location...</h4>
+            <img id="weather-icon" src="" alt="Weather Icon" style="width: 80px;" />
+            <p id="temperature" class="display-5 text-primary">--°C</p>
+            <p id="description" class="text-muted">--</p>
+            <p class="text-muted">
+              Wind: <span id="wind-speed">--</span> km/h | Humidity: <span id="humidity">--</span>%
+            </p>
+          </div>
+          
+          <!-- Right Column: Search and Forecast -->
+          <div class="col-lg-6 col-md-12">
+            <!-- City Search -->
+            <div class="input-group mb-3">
+              <input type="text" id="city-search" class="form-control" placeholder="Search City" />
+              <button id="search-btn" class="btn btn-info">Search</button>
+            </div>
+            
+            <!-- Forecast Section -->
+            <div id="forecast">
+              <h5 class="mb-3">3-Day Forecast</h5>
+              <div id="forecast-cards" class="d-flex flex-wrap gap-3">
+                <!-- Forecast cards will be dynamically added here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>
+
+    <div id="smart-calender" class="feature" style="display: none;">
+      <div class="calendar-container">
+        <header class="calendar-header">
+            <h1 class="calendar-title">AI-Based Smart Calendar</h1>
+            <p class="calendar-description">Stay organized and boost your productivity with smart scheduling powered by AI.</p>
+        </header>
+
+        <section class="calendar-body">
+            <div class="calendar">
+                <div class="calendar-nav">
+                    <button class="calendar-nav-btn calendar-nav-prev">&#8249;</button>
+                    <h2 class="calendar-month-year">March 2024</h2>
+                    <button class="calendar-nav-btn calendar-nav-next">&#8250;</button>
+                </div>
+                <div class="calendar-days" id="calendar-days"></div>
+            </div>
+
+            <div class="task-suggestions">
+                <h3 class="suggestions-title">Suggested Tasks for Today</h3>
+                <ul id="suggested-tasks" class="task-list">
+                    <!-- Suggested tasks will appear here -->
+                </ul>
+            </div>
+        </section>
+    </div>
+    </div>
+
+    <div id="quotes" class="feature" style="display: none;">
+      <div class="quote-container">
+        <header class="quote-header">
+          <h1 class="quote-title">Motivational Quotes</h1>
+          <p class="quote-subtitle">Get inspired with new quotes based on the time of day!</p>
+        </header>
+    
+        <section class="time-section">
+          <h2 class="time-heading">Current Time</h2>
+          <div id="current-time-display" class="time-display"></div>
+        </section>
+    
+        <section class="quote-section">
+          <h2 class="quote-display-heading">Today's Quote</h2>
+          <div id="current-quote" class="quote-display">Loading...</div>
+        </section>
+    
+        <section class="quote-actions">
+          <h3 class="actions-heading">Manage Quotes</h3>
+          <button id="add-quote-btn" class="quote-btn add-btn">Add New Quote</button>
+          <button id="edit-quote-btn" class="quote-btn edit-btn">Edit Quote</button>
+          <button id="delete-quote-btn" class="quote-btn delete-btn">Delete Quote</button>
+        </section>
+      </div>
+    
+      <!-- Modal for Editing Quote -->
+      <div id="quote-modal" class="modal-container">
+        <div class="modal-content">
+          <span id="close-modal-btn" class="close-btn">&times;</span>
+          <h3 class="modal-title">Edit Quote</h3>
+          <textarea id="quote-input" class="quote-textarea" placeholder="Enter your quote here"></textarea>
+          <button id="save-quote-btn" class="quote-btn save-btn">Save Quote</button>
+        </div>
+      </div>
+    
+  </div>
+   
+</div>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/main.js"></script>
+</body>
+</html>
